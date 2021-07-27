@@ -1,1 +1,41 @@
-<p>splitter-form works!</p>
+<div class = "centerer_div">
+<form>
+<div class="split_wrap">
+  <div class="split_entry_fields">
+    <div class = "label_error">
+      <label>Bill</label>
+      <div class = "field_error"></div>
+    </div>
+
+     <input class="input_box" class="bill-logo" formControlName="billAmount" type="text" justify="right">
+
+    <div>
+    <div class = "label_error">
+      <label>Select Tip %</label>
+      <div class = "field_error"></div>
+    </div>
+    <div class = "percent_btns">
+
+    </div>
+    </div>
+    <div class = "label_error">
+      <label>Number of People</label>
+      <div class = "field_error"></div>
+    </div>
+    <input class="input_box" class="ppl-logo" formControlName="numPpl" justify="right">
+  </div>
+  <div class="amtnTotal">
+    <div class="wrap_container">
+      <label>Tip Amount<span><br>/ person</span></label>
+      <label class="dollar_field">$0.00</label>
+    </div>
+    <div class="wrap_container">
+      <label>Total<span><br>/ person</span></label>
+      <label class="dollar_field">$0.00</label>
+    </div>
+    <button class="reset_button">RESET</button>
+  </div>
+
+</div>
+</form>
+</div>

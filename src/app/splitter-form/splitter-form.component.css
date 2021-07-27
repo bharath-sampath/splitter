@@ -1,0 +1,97 @@
+.split_wrap{
+  display:flex;
+  height: 80%;
+  width: 92%;
+  justify-content:center;
+}
+
+.centerer_div{
+  display: flex;
+  width: 100%;
+  height: 180%;
+  justify-content: center;
+}
+
+
+form
+{
+  display: flex;
+  width:70%;
+  height: 100%;
+  justify-content:center;
+  align-items: center;
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 1.25em;
+  max-width: 50em;
+  flex-wrap: wrap;
+}
+.split_entry_fields
+{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 50%;
+  height: 40%;
+  font-weight: 700;
+  font-size: 0.75em;
+  color: hsl(186, 14%, 43%);
+  padding: 0.75em;
+  max-width: 30em;
+}
+
+.amtnTotal
+{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 50%;
+  padding: 0.75em;
+  background-color: hsl(183, 100%, 15%);
+  font-weight: 700;
+  font-size: 0.75em;
+  color: hsl(0, 0%, 100%);
+  border-radius: 1.25em;
+  max-width: 30em;
+}
+
+input
+{
+  border: none;
+  background-color: hsl(189, 41%, 97%);
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-size: 2em;
+  text-align: right;
+  }
+
+  button{
+    border-radius: .4em;
+    background-color: hsl(172, 67%, 45%);
+    width:80%;
+    height: 3em;
+    color:hsl(183, 100%, 15%);
+    font-weight:700;
+    border:0;
+    align-self: center;
+  }
+
+  label>span {
+    font-size: .75em;
+    color: hsl(184, 14%, 56%)
+    
+  }
+
+  .wrap_container{
+    display:flex;
+    justify-content: space-between;
+    padding:1em 1.5em 1em 1.5em;
+    
+  }
+
+.dollar_field {
+  display: inline-block;
+  color:hsl(172, 67%, 45%);
+  font-size: 3em;
+  vertical-align: middle;
+  
+}
