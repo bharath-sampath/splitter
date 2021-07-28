@@ -61,6 +61,10 @@ form
   border-radius: 1.25em;
   
 }
+input:invalid 
+{
+  border:2px solid red;  
+}
 
 input
 {
@@ -122,12 +126,7 @@ button:hover, button:focus {
   background-color: hsl(172, 67%, 70%);
 } 
 
-.percent_btns {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
+
 .btn_wrap {
   flex-basis: 30%;
   padding-bottom: .5em;
@@ -141,14 +140,14 @@ button:hover, button:focus {
 .percent_btn:hover,.percent_btn:focus,.percent_btn:active, .percent_btn:visited {
   color:hsl(183, 100%, 15%);
 }
-.Custom_btn {
+/* .Custom_btn {
   background-color:hsl(0, 0%, 100%);
   color:hsl(183, 100%, 15%);
 }
 .Custom_btn:hover, .Custom_btn:focus{
   background-color:hsl(0, 0%, 100%);
   color:hsl(172, 67%, 45%);
-}
+} */
 
 .bill-logo, .ppl-logo{  
   
@@ -163,4 +162,19 @@ button:hover, button:focus {
 
 .bill-logo{
   background-image:url(../../assets/icon-dollar.svg); 
+}
+
+.label_error{
+  display: flex;
+  justify-content: space-between;
+}
+.field_error{
+  color:red;
+}
+
+
+
+button:disabled {
+background-color: hsl(184, 14%, 56%);
+
 }
