@@ -15,31 +15,44 @@
     
     <div class = "label_error">
       <label>Select Tip %</label>
-      <div class = "field_error" 
-      *ngIf="(splitForm.get('customPercent').dirty || splitForm.get('customPercent').touched) && 
-      (splitForm.get('customPercent').hasError('required') || splitForm.get('customPercent').hasError('pattern') )">
-      Invalid!</div>  
+      <div class = "field_error"></div>
     </div>
-    <!-- <div class = "percent_btns"> -->
-    <!-- <div class = "btn_wrap">
-      <button class="percent_btn" formControlName="fivePercent">5%</button>
-    </div>
-    <div class = "btn_wrap">
-      <button class="percent_btn" formControlName="tenPercent">10%</button>
-    </div>
-    <div class = "btn_wrap">
-      <button class="percent_btn" formControlName="fiftnPercent">15%</button>
-    </div>
-    <div class = "btn_wrap">
-      <button class="percent_btn" formControlName="twfPercent">25%</button>
-    </div>
-    <div class = "btn_wrap">
-      <button class="percent_btn" formControlName="fiftyPercent">50%</button>
-    </div> -->
+
+    <ul class='percent_btns'>
+      <li>
+        <input type="radio" formControlName="tipPercent" name="tipPercent" value="5" (change)="setCustomoff()"/>
+        <label for = "tipPercent" class='percent_btn'>5%</label>        
+      </li>
+      <li>
+        <input type="radio" formControlName="tipPercent" name="tipPercent" value="10" (change)="setCustomoff()"/>
+        <label for = "tipPercent" class='percent_btn'>10%</label>  
+      </li>
+      <li>        
+        <input type="radio" formControlName="tipPercent" name="tipPercent" value="15" (change)="setCustomoff()"/>
+        <label for = "tipPercent" class='percent_btn'>15%</label> 
+      </li>
+      <li>        
+        <input type="radio" formControlName="tipPercent" name="tipPercent" value="25" (change)="setCustomoff()"/>
+        <label for = "tipPercent" class='percent_btn'>25%</label> 
+      </li>
+      <li>        
+        <input type="radio" formControlName="tipPercent" name="tipPercent" value="50" (change)="setCustomoff()"/>
+        <label for = "tipPercent" class='percent_btn'>50%</label> 
+      </li>
+      <div [ngClass] ="{'hidden': checkCustom() === true, 'show':checkCustom() !== true}">
+      <li>        
+        <input type="radio" formControlName="tipPercent" (change)="handleCustom($event)" name="tipPercent" value="0">
+        <label for = "tipPercent"  class='percent_btn custom_btn'>Custom</label> 
+      </li>
+      </div>
+      <div [ngClass] ="{'hidden': checkCustom() !== true, 'show':checkCustom() === true}">
+      <li>
+        <input class="input_box"  type="text"  formControlName="customPercent" placeholder="0"/> 
+      </li>
+      </div>
+    </ul> 
     
-      <input  formControlName="customPercent" placeholder="0">
-    
-    <!-- </div> -->
+           
     
     <div class = "label_error">
       <label for="numPpl">Number of People</label>

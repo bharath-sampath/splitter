@@ -132,22 +132,113 @@ button:hover, button:focus {
   padding-bottom: .5em;
   align-self: center;
 }
+.percent_btns {
+  list-style-type:none;
+  margin:0;
+  padding:0;
+}
 
-.percent_btn {
-  background-color: hsl(183, 100%, 15%);
-  color:hsl(0, 0%, 100%);
+.percent_btns li {
+  float:left;
+  margin:4px;
+ width:6.5em;
+ height:3.5em;
+ position:relative;
+
 }
-.percent_btn:hover,.percent_btn:focus,.percent_btn:active, .percent_btn:visited {
+
+.percent_btns label, .percent_btns input {
+ display:block;
+ position:absolute;
+ top:0;
+ left:0;
+ right:0;
+ bottom:0;
+}
+
+.percent_btns input[type="radio"] {
+ opacity:0.011;
+ width:6.2rem;
+ height:3.2rem;
+ z-index:100;
+}
+
+.percent_btns input[type="text"] {
+  width:2.6em;
+ height:1.4em;
+  z-index:100;
+  border-radius: 4px;
+ }
+
+.percent_btns input[type="radio"]:checked + label {
+  background-color:hsl(172, 67%, 45%);
   color:hsl(183, 100%, 15%);
 }
-/* .Custom_btn {
-  background-color:hsl(0, 0%, 100%);
-  color:hsl(183, 100%, 15%);
+
+.percent_btns label {
+  padding:5px;
+  border:1px solid #CCC; 
+  cursor:pointer;
+ z-index:90;
+ text-align: center;
+ border-radius: 4px;
+ font-size: 1.5em;
+ background-color: hsl(183, 100%, 15%);
+ color:hsl(0, 0%, 100%);
 }
-.Custom_btn:hover, .Custom_btn:focus{
-  background-color:hsl(0, 0%, 100%);
-  color:hsl(172, 67%, 45%);
-} */
+
+
+/* .percent_btn {
+
+}
+
+.percent_btns{
+  list-style-type:none;  
+  padding:0;
+  display: flex;
+  justify-content:space-evenly;
+  flex:0 1 2em;
+
+}
+
+
+.percent_btns input[type="radio"] {
+  opacity:0.011;
+  z-index:100;
+}
+
+.percent_btns input[type="radio"]:checked + label {
+ 
+}
+
+.percent_btns label {
+  padding:.5em;
+ 
+  cursor:pointer;
+ z-index:90;
+}
+
+
+
+.percent_btns label:hover {
+  background-color:hsl(172, 67%, 45%);
+  color:hsl(183, 100%, 15%); */
+
+/* } */
+.percent_btns .custom_btn {
+  background-color: hsl(189, 41%, 97%);
+  color:hsl(184, 14%, 56%);
+  border:0
+}
+
+
+.hidden {
+  display:none;
+}
+.show
+{
+  display:inline-block;
+}
 
 .bill-logo, .ppl-logo{  
   
