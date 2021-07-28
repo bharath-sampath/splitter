@@ -1,8 +1,10 @@
 .split_wrap{
   display:flex;
-  height: 80%;
-  width: 92%;
-  justify-content:center;
+  height: 90%;
+  width: 100%;
+  justify-content:space-evenly;
+  
+  flex-wrap: wrap;
 }
 
 .centerer_div{
@@ -10,48 +12,54 @@
   width: 100%;
   height: 180%;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 
 form
 {
   display: flex;
-  width:70%;
-  height: 100%;
+  width:60%;
+  height: 110%;
   justify-content:center;
   align-items: center;
   background-color: hsl(0, 0%, 100%);
   border-radius: 1.25em;
-  max-width: 50em;
+  flex: 1 1 1;
   flex-wrap: wrap;
+  box-shadow: 0px 1px 23px 1px rgba(0,0,0,0.24);
 }
+
+
+
 .split_entry_fields
 {
   display:flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 50%;
-  height: 40%;
+  width: 45%;
+  height: 100%;
   font-weight: 700;
   font-size: 0.75em;
   color: hsl(186, 14%, 43%);
-  padding: 0.75em;
-  max-width: 30em;
-}
+  padding: 1em;
+ 
+  }
 
 .amtnTotal
 {
   display:flex;
   flex-direction: column;
-  justify-content: space-between;
-  width: 50%;
-  padding: 0.75em;
+  justify-content:flex-start;
+  width: 45%;
+  height: 100%;
+  padding: 1em;
   background-color: hsl(183, 100%, 15%);
   font-weight: 700;
   font-size: 0.75em;
   color: hsl(0, 0%, 100%);
   border-radius: 1.25em;
-  max-width: 30em;
+  
 }
 
 input
@@ -60,19 +68,26 @@ input
   background-color: hsl(189, 41%, 97%);
   font-family: "Space Mono", monospace;
   font-weight: 700;
-  font-size: 2em;
+  font-size: 2.5em;
   text-align: right;
+  color:hsl(183, 100%, 15%);
+  padding-right:.5em;
+  padding-left:.5em;
   }
 
   button{
+    display: block;
     border-radius: .4em;
     background-color: hsl(172, 67%, 45%);
     width:80%;
     height: 3em;
     color:hsl(183, 100%, 15%);
+    font-family: "Space Mono", monospace;
     font-weight:700;
     border:0;
+    outline: 0;
     align-self: center;
+    margin-top: auto;
   }
 
   label>span {
@@ -85,6 +100,7 @@ input
     display:flex;
     justify-content: space-between;
     padding:1em 1.5em 1em 1.5em;
+    align-items: center;
     
   }
 
@@ -94,4 +110,57 @@ input
   font-size: 3em;
   vertical-align: middle;
   
+}
+
+input:hover, input:focus{
+
+  border: 2px solid hsl(172, 67%, 45%);
+  outline: none;
+}
+
+button:hover, button:focus {
+  background-color: hsl(172, 67%, 70%);
+} 
+
+.percent_btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.btn_wrap {
+  flex-basis: 30%;
+  padding-bottom: .5em;
+  align-self: center;
+}
+
+.percent_btn {
+  background-color: hsl(183, 100%, 15%);
+  color:hsl(0, 0%, 100%);
+}
+.percent_btn:hover,.percent_btn:focus,.percent_btn:active, .percent_btn:visited {
+  color:hsl(183, 100%, 15%);
+}
+.Custom_btn {
+  background-color:hsl(0, 0%, 100%);
+  color:hsl(183, 100%, 15%);
+}
+.Custom_btn:hover, .Custom_btn:focus{
+  background-color:hsl(0, 0%, 100%);
+  color:hsl(172, 67%, 45%);
+}
+
+.bill-logo, .ppl-logo{  
+  
+  /* background-position:left; */
+  background-position: .5em ;   
+  background-repeat:no-repeat;   
+}
+.ppl-logo{
+  background-image:url(../../assets/icon-person.svg); 
+
+}
+
+.bill-logo{
+  background-image:url(../../assets/icon-dollar.svg); 
 }
