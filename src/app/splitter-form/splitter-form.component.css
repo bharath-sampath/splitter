@@ -115,8 +115,8 @@ input
 }
 
 input:hover, input:focus{
-
-  outline: 2px solid hsl(172, 67%, 45%);
+  outline:0;
+  border: 2px solid hsl(172, 67%, 45%);
 }
 
 button:hover, button:focus {
