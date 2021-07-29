@@ -116,14 +116,9 @@ input
 
 input:hover, input:focus{
 
-  /* border: 1px solid hsl(172, 67%, 45%); */
-  outline: 1px solid hsl(172, 67%, 45%);
+  outline: 2px solid hsl(172, 67%, 45%);
 }
 
-input:invalid {
-  outline: 2px solid red;
-
-}
 button:hover, button:focus {
   background-color: hsl(172, 67%, 70%);
 
@@ -190,50 +185,11 @@ button:hover, button:focus {
  color:hsl(0, 0%, 100%);
 }
 
-
-/* .percent_btn {
-
-}
-
-.percent_btns{
-  list-style-type:none;
-  padding:0;
-  display: flex;
-  justify-content:space-evenly;
-  flex:0 1 2em;
-
-}
-
-
-.percent_btns input[type="radio"] {
-  opacity:0.011;
-  z-index:100;
-}
-
-.percent_btns input[type="radio"]:checked + label {
-
-}
-
-.percent_btns label {
-  padding:.5em;
-
-  cursor:pointer;
- z-index:90;
-}
-
-
-
-.percent_btns label:hover {
-  background-color:hsl(172, 67%, 45%);
-  color:hsl(183, 100%, 15%); */
-
-/* } */
 .percent_btns .custom_btn {
   background-color: hsl(189, 41%, 97%);
   color:hsl(184, 14%, 56%);
   border:0
 }
-
 
 .hidden {
   display:none;

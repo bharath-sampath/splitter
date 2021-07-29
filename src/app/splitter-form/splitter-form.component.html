@@ -10,7 +10,7 @@
       Can't be zero</div>
     </div>
 
-     <input class="input_box" class="bill-logo" class="show_error" formControlName="billAmount" type="text" placeholder="0"
+     <input  class="bill-logo" formControlName="billAmount" type="text" placeholder="0"
       [ngClass] = "{'input_error': checkError('billAmount') !== true}" >
 
 
@@ -56,7 +56,7 @@
       </div>
       <div [ngClass] ="{'hidden': checkCustom() !== true, 'show':checkCustom() === true}">
       <li>
-        <input class="input_box"  type="text"  formControlName="customPercent" placeholder="0"
+        <input   type="text"  formControlName="customPercent" placeholder="0"
         [ngClass] = "{'input_error': checkError('customPercent') !== true}"/>
       </li>
       </div>
@@ -72,7 +72,7 @@
         Can't be zero</div>
     </div>
 
-    <input class="input_box" class="ppl-logo" formControlName="numPpl" placeholder="0"
+    <input  class="ppl-logo" formControlName="numPpl" placeholder="0"
     [ngClass] = "{'input_error': checkError('numPpl') !== true}"
     >
 
