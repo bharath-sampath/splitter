@@ -4,77 +4,89 @@
   <div class="split_entry_fields">
     <div class = "label_error">
       <label for = "billAmount">Bill</label>
-      <div class = "field_error" 
-      *ngIf="(splitForm.get('billAmount').dirty || splitForm.get('billAmount').touched) && 
+      <div class = "field_error"
+      *ngIf="(splitForm.get('billAmount').dirty || splitForm.get('billAmount').touched) &&
       (splitForm.get('billAmount').hasError('required') || splitForm.get('billAmount').hasError('pattern') )">
-      Invalid!</div>
+      Can't be zero</div>
     </div>
 
-     <input class="input_box" class="bill-logo" formControlName="billAmount" type="text" placeholder="0">
+     <input class="input_box" class="bill-logo" class="show_error" formControlName="billAmount" type="text" placeholder="0"
+      [ngClass] = "{'input_error': checkError('billAmount') !== true}" >
 
-    
+
     <div class = "label_error">
       <label>Select Tip %</label>
-      <div class = "field_error"></div>
+      <div class = "field_error"
+      *ngIf="(splitForm.get('customPercent').dirty || splitForm.get('customPercent').touched) &&
+      (splitForm.get('customPercent').hasError('required') || splitForm.get('customPercent').hasError('pattern') )">
+      Can't be zero</div>
+      <div class = "field_error"
+      *ngIf="(splitForm.get('tipPercent').dirty || splitForm.get('tipPercent').touched) &&
+      (splitForm.get('tipPercent').hasError('required') )">
+      Can't be zero</div>
+
     </div>
 
     <ul class='percent_btns'>
       <li>
-        <input type="radio" formControlName="tipPercent" name="tipPercent" value="5" (change)="setCustomoff()"/>
-        <label for = "tipPercent" class='percent_btn'>5%</label>        
+        <input type="radio" formControlName="tipPercent" name="tipPercent" value="5" (change)="setCustomoff(5)"/>
+        <label for = "tipPercent" class='percent_btn'>5%</label>
       </li>
       <li>
-        <input type="radio" formControlName="tipPercent" name="tipPercent" value="10" (change)="setCustomoff()"/>
-        <label for = "tipPercent" class='percent_btn'>10%</label>  
+        <input type="radio" formControlName="tipPercent" name="tipPercent" value="10" (change)="setCustomoff(10)"/>
+        <label for = "tipPercent" class='percent_btn'>10%</label>
       </li>
-      <li>        
-        <input type="radio" formControlName="tipPercent" name="tipPercent" value="15" (change)="setCustomoff()"/>
-        <label for = "tipPercent" class='percent_btn'>15%</label> 
+      <li>
+        <input type="radio" formControlName="tipPercent" name="tipPercent" value="15" (change)="setCustomoff(15)"/>
+        <label for = "tipPercent" class='percent_btn'>15%</label>
       </li>
-      <li>        
-        <input type="radio" formControlName="tipPercent" name="tipPercent" value="25" (change)="setCustomoff()"/>
-        <label for = "tipPercent" class='percent_btn'>25%</label> 
+      <li>
+        <input type="radio" formControlName="tipPercent" name="tipPercent" value="25" (change)="setCustomoff(25)"/>
+        <label for = "tipPercent" class='percent_btn'>25%</label>
       </li>
-      <li>        
-        <input type="radio" formControlName="tipPercent" name="tipPercent" value="50" (change)="setCustomoff()"/>
-        <label for = "tipPercent" class='percent_btn'>50%</label> 
+      <li>
+        <input type="radio" formControlName="tipPercent" name="tipPercent" value="50" (change)="setCustomoff(50)"/>
+        <label for = "tipPercent" class='percent_btn'>50%</label>
       </li>
       <div [ngClass] ="{'hidden': checkCustom() === true, 'show':checkCustom() !== true}">
-      <li>        
+      <li>
         <input type="radio" formControlName="tipPercent" (change)="handleCustom($event)" name="tipPercent" value="0">
-        <label for = "tipPercent"  class='percent_btn custom_btn'>Custom</label> 
+        <label for = "tipPercent"  class='percent_btn custom_btn'>Custom</label>
       </li>
       </div>
       <div [ngClass] ="{'hidden': checkCustom() !== true, 'show':checkCustom() === true}">
       <li>
-        <input class="input_box"  type="text"  formControlName="customPercent" placeholder="0"/> 
+        <input class="input_box"  type="text"  formControlName="customPercent" placeholder="0"
+        [ngClass] = "{'input_error': checkError('customPercent') !== true}"/>
       </li>
       </div>
-    </ul> 
-    
-           
-    
+    </ul>
+
+
+
     <div class = "label_error">
       <label for="numPpl">Number of People</label>
-      <div class = "field_error" 
-        *ngIf="(splitForm.get('numPpl').dirty || splitForm.get('numPpl').touched) && 
+      <div class = "field_error"
+        *ngIf="(splitForm.get('numPpl').dirty || splitForm.get('numPpl').touched) &&
         (splitForm.get('numPpl').hasError('required') || splitForm.get('numPpl').hasError('pattern') )">
-        Invalid!</div>      
+        Can't be zero</div>
     </div>
-    
-    <input class="input_box" class="ppl-logo" formControlName="numPpl" placeholder="0">
+
+    <input class="input_box" class="ppl-logo" formControlName="numPpl" placeholder="0"
+    [ngClass] = "{'input_error': checkError('numPpl') !== true}"
+    >
 
   </div>
   <div class="amtnTotal">
     <div class="wrap_container">
       <label>Tip Amount<span><br>/ person</span></label>
-      <label class="dollar_field">{{calculateTip()}}</label>
+      <label class="dollar_field">{{calculateTip() | currency:'USD'}}</label>
     </div>
     <div class="wrap_container">
       <label>Total<span><br>/ person</span></label>
-      <label class="dollar_field" >{{calculateTotal()}}</label>
+      <label class="dollar_field" >{{calculateTotal() | currency:'USD'}}</label>
     </div>
-    <button class="reset_button" type="submit"  [disabled]="!splitForm.valid">RESET</button>
+    <button class="reset_button" type="submit"  [disabled]="!splitForm.touched">RESET</button>
   </div>
 
 </div>

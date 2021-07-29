@@ -3,7 +3,7 @@
   height: 90%;
   width: 100%;
   justify-content:space-evenly;
-  
+
   flex-wrap: wrap;
 }
 
@@ -43,7 +43,7 @@ form
   font-size: 0.75em;
   color: hsl(186, 14%, 43%);
   padding: 1em;
- 
+
   }
 
 .amtnTotal
@@ -59,12 +59,9 @@ form
   font-size: 0.75em;
   color: hsl(0, 0%, 100%);
   border-radius: 1.25em;
-  
+
 }
-input:invalid 
-{
-  border:2px solid red;  
-}
+
 
 input
 {
@@ -78,6 +75,7 @@ input
   padding-right:.5em;
   padding-left:.5em;
   }
+
 
   button{
     display: block;
@@ -97,7 +95,7 @@ input
   label>span {
     font-size: .75em;
     color: hsl(184, 14%, 56%)
-    
+
   }
 
   .wrap_container{
@@ -105,7 +103,7 @@ input
     justify-content: space-between;
     padding:1em 1.5em 1em 1.5em;
     align-items: center;
-    
+
   }
 
 .dollar_field {
@@ -113,18 +111,23 @@ input
   color:hsl(172, 67%, 45%);
   font-size: 3em;
   vertical-align: middle;
-  
+
 }
 
 input:hover, input:focus{
 
-  border: 2px solid hsl(172, 67%, 45%);
-  outline: none;
+  /* border: 1px solid hsl(172, 67%, 45%); */
+  outline: 1px solid hsl(172, 67%, 45%);
 }
 
+input:invalid {
+  outline: 2px solid red;
+
+}
 button:hover, button:focus {
   background-color: hsl(172, 67%, 70%);
-} 
+
+}
 
 
 .btn_wrap {
@@ -177,7 +180,7 @@ button:hover, button:focus {
 
 .percent_btns label {
   padding:5px;
-  border:1px solid #CCC; 
+  border:1px solid #CCC;
   cursor:pointer;
  z-index:90;
  text-align: center;
@@ -193,7 +196,7 @@ button:hover, button:focus {
 }
 
 .percent_btns{
-  list-style-type:none;  
+  list-style-type:none;
   padding:0;
   display: flex;
   justify-content:space-evenly;
@@ -208,12 +211,12 @@ button:hover, button:focus {
 }
 
 .percent_btns input[type="radio"]:checked + label {
- 
+
 }
 
 .percent_btns label {
   padding:.5em;
- 
+
   cursor:pointer;
  z-index:90;
 }
@@ -240,19 +243,18 @@ button:hover, button:focus {
   display:inline-block;
 }
 
-.bill-logo, .ppl-logo{  
-  
-  /* background-position:left; */
-  background-position: .5em ;   
-  background-repeat:no-repeat;   
+.bill-logo, .ppl-logo{
+
+  background-position: .5em ;
+  background-repeat:no-repeat;
 }
 .ppl-logo{
-  background-image:url(../../assets/icon-person.svg); 
+  background-image:url(../../assets/icon-person.svg);
 
 }
 
-.bill-logo{
-  background-image:url(../../assets/icon-dollar.svg); 
+ .bill-logo {
+  background-image:url(../../assets/icon-dollar.svg);
 }
 
 .label_error{
@@ -261,6 +263,11 @@ button:hover, button:focus {
 }
 .field_error{
   color:red;
+}
+
+.input_error {
+  border: 2px solid red;
+
 }
 
 
