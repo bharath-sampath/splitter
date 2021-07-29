@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Renderer2 } from '@angular/core';
 import { FormGroup,FormControl,Validators, FormBuilder } from '@angular/forms';
 
 @Component({
@@ -10,7 +10,7 @@ export class SplitterFormComponent implements OnInit {
   splitForm: FormGroup;
   customHidden:boolean=false;
   tipPercentage:number=0;
-  constructor(private fb:FormBuilder) { }
+  constructor(private fb:FormBuilder,private renderer:Renderer2) { }
 
   ngOnInit(): void {
     this.splitForm = this.fb.group({
