@@ -47,7 +47,7 @@ calculateTip():number{
     this.splitForm.get('numPpl')?.value != undefined))
     {
 
-      if (this.splitForm.get('billAmount')?.value>999999999) return 0;
+
 
     return Number((Number(this.customOrCanned() / 100) *
               Number(this.splitForm.get('billAmount')?.value)/
@@ -65,7 +65,7 @@ calculateTotal():number{
     this.splitForm.get('numPpl')?.value != undefined))
     {
 
-      if (this.splitForm.get('billAmount')?.value>999999999) return 0;
+
 
       return Number(((Number((this.splitForm.get('billAmount')?.value/this.splitForm.get('numPpl')?.value)) +
       Number(((this.customOrCanned()/ 100) *
@@ -106,7 +106,6 @@ checkError(fieldName:string) {
   else
   {
     if (this.splitForm.get(fieldName).value==="0") return false;
-    if (this.splitForm.get(fieldName).value.length>10) return false
     return this.splitForm.get(fieldName)?.valid;
   }
 
