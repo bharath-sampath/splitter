@@ -6,9 +6,14 @@
       <label for = "billAmount">Bill</label>
       <div class = "field_error"
       *ngIf="(splitForm.get('billAmount').dirty || splitForm.get('billAmount').touched) &&
-      (splitForm.get('billAmount').hasError('required') || splitForm.get('billAmount').hasError('pattern') ) ||
-      (splitForm.get('billAmount').dirty && splitForm.get('billAmount').value==='0')">
-      Can't be zero or invalid</div>
+      (splitForm.get('billAmount').hasError('required') || splitForm.get('billAmount').hasError('pattern')
+      || splitForm.get('billAmount').hasError('min')) ">
+      Can't be zero or invalid
+    </div>
+    <div class = "field_error"
+    *ngIf="(splitForm.get('billAmount').dirty && splitForm.get('billAmount').hasError('max'))" setfocus>
+    Too big (>999,999,999)
+  </div>
     </div>
 
 
@@ -20,8 +25,8 @@
       <label>Select Tip %</label>
       <div class = "field_error"
       *ngIf="(splitForm.get('customPercent').dirty || splitForm.get('customPercent').touched) &&
-      (splitForm.get('customPercent').hasError('required') || splitForm.get('customPercent').hasError('pattern') ||
-      (splitForm.get('customPercent').dirty && splitForm.get('customPercent').value==='0'))">
+      (splitForm.get('customPercent').hasError('required') || splitForm.get('customPercent').hasError('pattern')||
+       splitForm.get('customPercent').hasError('min'))">
       Can't be zero or invalid</div>
       <div class = "field_error"
       *ngIf="(splitForm.get('tipPercent').dirty || splitForm.get('tipPercent').touched) &&
@@ -68,10 +73,11 @@
     <div class = "label_error">
       <label for="numPpl">Number of People</label>
       <div class = "field_error"
-        *ngIf="(splitForm.get('numPpl').dirty || splitForm.get('numPpl').touched) &&
-        (splitForm.get('numPpl').hasError('required') || splitForm.get('numPpl').hasError('pattern') ) ||
-        (splitForm.get('numPpl').dirty && splitForm.get('numPpl').value==='0') ">
-        Can't be zero or invalid</div>
+      *ngIf="(splitForm.get('numPpl').dirty || splitForm.get('numPpl').touched) &&
+      (splitForm.get('numPpl').hasError('required') || splitForm.get('numPpl').hasError('pattern')
+      || splitForm.get('numPpl').hasError('min')) ">
+      Can't be zero or invalid
+    </div>
     </div>
 
     <input  class="ppl-logo" formControlName="numPpl" placeholder="0"
