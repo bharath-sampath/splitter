@@ -1,9 +1,9 @@
 .logo_head{
   display: flex;
-  padding-top: 5em;
-  padding-bottom: 3em;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
   width: 100%;
   justify-content: center;
-  
+
 }
 

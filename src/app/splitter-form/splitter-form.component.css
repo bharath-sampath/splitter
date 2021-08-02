@@ -1,50 +1,41 @@
-.split_wrap{
-  display:flex;
-  height: 90%;
-  width: 100%;
-  justify-content:space-evenly;
-
-  flex-wrap: wrap;
-}
-
 .centerer_div{
   display: flex;
-  width: 100%;
-  height: 180%;
+  width: 100vw;
+  height: 70vh;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-
 form
 {
   display: flex;
-  width:60%;
-  height: 110%;
+  flex-direction: row;
+
+  max-width: 750px;
+  max-height: 350px;
+
   justify-content:center;
-  align-items: center;
+  /* align-items: center; */
   background-color: hsl(0, 0%, 100%);
-  border-radius: 1.25em;
-  flex: 1 1 1;
-  flex-wrap: wrap;
+  border-radius: 1rem;
   box-shadow: 0px 1px 23px 1px rgba(0,0,0,0.24);
+
 }
-
-
 
 .split_entry_fields
 {
   display:flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 45%;
-  height: 100%;
+  width: 40%;
+  height: 90%;
+  min-width: 350px;
   font-weight: 700;
-  font-size: 0.75em;
+  font-size: 0.75rem;
   color: hsl(186, 14%, 43%);
-  padding: 1em;
+  padding: 1rem;
 
-  }
+   }
 
 .amtnTotal
 {
@@ -52,13 +43,15 @@ form
   flex-direction: column;
   justify-content:flex-start;
   width: 45%;
-  height: 100%;
-  padding: 1em;
+  height: 90%;
+  padding:1rem;
+  min-width: 350px;
   background-color: hsl(183, 100%, 15%);
   font-weight: 700;
-  font-size: 0.75em;
+  font-size: 0.75rem;
   color: hsl(0, 0%, 100%);
-  border-radius: 1.25em;
+  border-radius: 1.25rem;
+  margin:1rem;
 
 }
 
@@ -69,20 +62,21 @@ input
   background-color: hsl(189, 41%, 97%);
   font-family: "Space Mono", monospace;
   font-weight: 700;
-  font-size: 2.5em;
+  font-size: 1.5rem;
   text-align: right;
   color:hsl(183, 100%, 15%);
-  padding-right:.5em;
-  padding-left:.5em;
+  padding-right:.5rem;
+  padding-left:.5rem;
+  border:2px solid white;
   }
 
 
   button{
     display: block;
-    border-radius: .4em;
+    border-radius: .4rem;
     background-color: hsl(172, 67%, 45%);
-    width:80%;
-    height: 3em;
+    width:17rem;
+    height: 2.5rem;
     color:hsl(183, 100%, 15%);
     font-family: "Space Mono", monospace;
     font-weight:700;
@@ -93,23 +87,23 @@ input
   }
 
   label>span {
-    font-size: .75em;
+    font-size: .75rem;
     color: hsl(184, 14%, 56%)
 
   }
 
-  .wrap_container{
+.wrap_container{
     display:flex;
     justify-content: space-between;
-    padding:1em 1.5em 1em 1.5em;
+    padding:1rem 1.5rem 1rem 1.5rem;
     align-items: center;
-
+    flex-wrap: wrap;
   }
 
 .dollar_field {
   display: inline-block;
   color:hsl(172, 67%, 45%);
-  font-size: 3em;
+  font-size: 2rem;
   vertical-align: middle;
 
 }
@@ -124,23 +118,24 @@ button:hover, button:focus {
 
 }
 
-
 .btn_wrap {
   flex-basis: 30%;
-  padding-bottom: .5em;
+  padding-bottom: .5rem;
   align-self: center;
 }
-.percent_btns {
+.percent_btns
+{
   list-style-type:none;
   margin:0;
   padding:0;
+  justify-items: center;
 }
 
 .percent_btns li {
   float:left;
   margin:4px;
- width:6.5em;
- height:3.5em;
+ width:6.0rem;
+ height:3.1rem;
  position:relative;
 
 }
@@ -152,18 +147,19 @@ button:hover, button:focus {
  left:0;
  right:0;
  bottom:0;
+
 }
 
 .percent_btns input[type="radio"] {
  opacity:0.011;
- width:4.9rem;
- height:2.7rem;
+ width:6.0rem;
+ height:3.1rem;
  z-index:100;
 }
 
 .percent_btns input[type="text"] {
-  width:2.6em;
- height:1.4em;
+  width:6.0rem;
+  height:3.1rem;
   z-index:100;
   border-radius: 4px;
  }
@@ -174,13 +170,15 @@ button:hover, button:focus {
 }
 
 .percent_btns label {
+  display: inline-block;
+  vertical-align: middle;
   padding:5px;
   border:1px solid #CCC;
   cursor:pointer;
  z-index:90;
  text-align: center;
  border-radius: 4px;
- font-size: 1.5em;
+ font-size: 1.4rem;
  background-color: hsl(183, 100%, 15%);
  color:hsl(0, 0%, 100%);
 }
@@ -226,9 +224,17 @@ button:hover, button:focus {
 
 }
 
-
-
 button:disabled {
 background-color: hsl(184, 14%, 56%);
 
+}
+@media (max-width: 750px)
+{
+  form{
+    flex-direction: column;
+    justify-content: center;
+    max-height: 600px;
+    max-width: 385px;
+    align-items: center;
+  }
 }

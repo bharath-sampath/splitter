@@ -1,14 +1,16 @@
 <div class = "centerer_div">
 <form [formGroup]="splitForm" (ngSubmit)="onReset()"  >
-<div class="split_wrap">
+
   <div class="split_entry_fields">
     <div class = "label_error">
       <label for = "billAmount">Bill</label>
       <div class = "field_error"
       *ngIf="(splitForm.get('billAmount').dirty || splitForm.get('billAmount').touched) &&
-      (splitForm.get('billAmount').hasError('required') || splitForm.get('billAmount').hasError('pattern') )">
-      Can't be zero</div>
+      (splitForm.get('billAmount').hasError('required') || splitForm.get('billAmount').hasError('pattern') ) ||
+      (splitForm.get('billAmount').dirty && splitForm.get('billAmount').value==='0')">
+      Can't be zero or invalid</div>
     </div>
+
 
      <input  class="bill-logo" formControlName="billAmount" type="text" placeholder="0"
       [ngClass] = "{'input_error': checkError('billAmount') !== true}" >
@@ -18,12 +20,13 @@
       <label>Select Tip %</label>
       <div class = "field_error"
       *ngIf="(splitForm.get('customPercent').dirty || splitForm.get('customPercent').touched) &&
-      (splitForm.get('customPercent').hasError('required') || splitForm.get('customPercent').hasError('pattern') )">
-      Can't be zero</div>
+      (splitForm.get('customPercent').hasError('required') || splitForm.get('customPercent').hasError('pattern') ||
+      (splitForm.get('customPercent').dirty && splitForm.get('customPercent').value==='0'))">
+      Can't be zero or invalid</div>
       <div class = "field_error"
       *ngIf="(splitForm.get('tipPercent').dirty || splitForm.get('tipPercent').touched) &&
-      (splitForm.get('tipPercent').hasError('required') )">
-      Can't be zero</div>
+      (splitForm.get('tipPercent').hasError('required'))">
+      Select a tip or custom value</div>
 
     </div>
 
@@ -62,14 +65,13 @@
       </div>
     </ul>
 
-
-
     <div class = "label_error">
       <label for="numPpl">Number of People</label>
       <div class = "field_error"
         *ngIf="(splitForm.get('numPpl').dirty || splitForm.get('numPpl').touched) &&
-        (splitForm.get('numPpl').hasError('required') || splitForm.get('numPpl').hasError('pattern') )">
-        Can't be zero</div>
+        (splitForm.get('numPpl').hasError('required') || splitForm.get('numPpl').hasError('pattern') ) ||
+        (splitForm.get('numPpl').dirty && splitForm.get('numPpl').value==='0') ">
+        Can't be zero or invalid</div>
     </div>
 
     <input  class="ppl-logo" formControlName="numPpl" placeholder="0"
@@ -89,6 +91,6 @@
     <button class="reset_button" type="submit"  [disabled]="!splitForm.touched">RESET</button>
   </div>
 
-</div>
+
 </form>
 </div>

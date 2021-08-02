@@ -1,6 +1,7 @@
 import { Component, OnInit,Renderer2 } from '@angular/core';
 import { FormGroup,FormControl,Validators, FormBuilder } from '@angular/forms';
 
+
 @Component({
   selector: 'app-splitter-form',
   templateUrl: './splitter-form.component.html',
@@ -24,9 +25,9 @@ export class SplitterFormComponent implements OnInit {
     });
   }
 
-
 onReset(){
   this.splitForm.reset();
+  this.setCustomoff();
 }
 
 customOrCanned():number {
@@ -39,15 +40,18 @@ customOrCanned():number {
   }
 }
 
-calculateTip(){
+calculateTip():number{
 
   if(this.splitForm.valid &&
     (this.splitForm.get('numPpl')?.value!=0 &&
     this.splitForm.get('numPpl')?.value != undefined))
     {
-      return Number((this.customOrCanned() / 100) *
-              this.splitForm.get('billAmount')?.value/
-              this.splitForm.get('numPpl')?.value).toFixed(2);
+
+      if (this.splitForm.get('billAmount')?.value>999999999) return 0;
+
+    return Number((Number(this.customOrCanned() / 100) *
+              Number(this.splitForm.get('billAmount')?.value)/
+              Number(this.splitForm.get('numPpl')?.value)).toFixed(2));
 
     }
   else{
@@ -55,15 +59,18 @@ calculateTip(){
   }
 
 }
-calculateTotal(){
+calculateTotal():number{
   if(this.splitForm.valid &&
     (this.splitForm.get('numPpl')?.value!=0 &&
     this.splitForm.get('numPpl')?.value != undefined))
     {
-      return (Number((this.splitForm.get('billAmount')?.value/this.splitForm.get('numPpl')?.value)) +
+
+      if (this.splitForm.get('billAmount')?.value>999999999) return 0;
+
+      return Number(((Number((this.splitForm.get('billAmount')?.value/this.splitForm.get('numPpl')?.value)) +
       Number(((this.customOrCanned()/ 100) *
       this.splitForm.get('billAmount')?.value/
-      this.splitForm.get('numPpl')?.value))).toFixed(2);
+      this.splitForm.get('numPpl')?.value)))).toFixed(2));
 
     }
   else{
@@ -82,10 +89,13 @@ checkCustom() {
   return this.customHidden;
 }
 
-setCustomoff(tip:number) {
+setCustomoff(tip?:number) {
   this.customHidden=false;
-  this.tipPercentage = tip;
+
   this.splitForm.get('customPercent')?.patchValue("");
+  if(tip != undefined) {
+    this.tipPercentage = tip;
+  }
 }
 
 checkError(fieldName:string) {
@@ -95,6 +105,8 @@ checkError(fieldName:string) {
   }
   else
   {
+    if (this.splitForm.get(fieldName).value==="0") return false;
+    if (this.splitForm.get(fieldName).value.length>10) return false
     return this.splitForm.get(fieldName)?.valid;
   }
 
