@@ -18,7 +18,7 @@ export class SplitterFormComponent implements OnInit {
       billAmount: new FormControl('',[Validators.required,Validators.pattern('\\d+([.]\\d+)?'),
           Validators.max(999999999),Validators.min(1)]),
       tipPercent: new FormControl('',Validators.required),
-      customPercent: new FormControl('',[Validators.required,Validators.pattern('\\d+([.]\\d+)?'),Validators.min(1)]),
+      customPercent: new FormControl('',[Validators.pattern('\\d+([.]\\d+)?'),Validators.min(1)]),
       dollarTip: new FormControl(''),
       dollarTotal: new FormControl(''),
       numPpl:new FormControl('',[Validators.required,Validators.pattern('\\d+([.]\\d+)?'),Validators.min(1)]),
