@@ -1,9 +1,14 @@
 .logo_head{
   display: flex;
   padding-top: 5rem;
-  padding-bottom: 3rem;
+  padding-bottom: 5rem;
   width: 100%;
   justify-content: center;
 
 }
 
+@media (max-width: 750px) {
+  .logo_head{
+    padding-bottom: 3rem;
+  }
+}

@@ -25,7 +25,7 @@
       <label>Select Tip %</label>
       <div class = "field_error"
       *ngIf="(splitForm.get('customPercent').dirty || splitForm.get('customPercent').touched) &&
-      (splitForm.get('customPercent').hasError('required') || splitForm.get('customPercent').hasError('pattern')||
+      (splitForm.get('customPercent').value==='0' || splitForm.get('customPercent').hasError('pattern')||
        splitForm.get('customPercent').hasError('max') || splitForm.get('customPercent').hasError('min')  )">
       Can't be zero or invalid</div>
       <div class = "field_error"
