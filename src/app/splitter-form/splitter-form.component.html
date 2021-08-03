@@ -17,7 +17,7 @@
     </div>
 
 
-     <input  class="bill-logo" formControlName="billAmount" type="text" placeholder="0"
+     <input  class="bill-logo" formControlName="billAmount" type="text" placeholder="0" #billamt
       [ngClass] = "{'input_error': checkError('billAmount') !== true}" >
 
 
@@ -62,7 +62,7 @@
         <label for = "tipPercent"  class='percent_btn custom_btn'>Custom</label>
       </li>
       </div>
-      <div [ngClass] ="{'hidden': checkCustom() !== true, 'show':checkCustom() === true}">
+      <div  #custom [ngClass] ="{'hidden': checkCustom() !== true, 'show':checkCustom() === true}">
       <li>
         <input   type="text"  formControlName="customPercent" placeholder="0"
         [ngClass] = "{'input_error': checkError('customPercent') !== true}"/>

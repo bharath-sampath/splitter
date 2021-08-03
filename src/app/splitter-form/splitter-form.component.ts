@@ -1,4 +1,4 @@
-import { Component, OnInit,Renderer2 } from '@angular/core';
+import { Component, OnInit,Renderer2,ElementRef, ViewChild } from '@angular/core';
 import { FormGroup,FormControl,Validators, FormBuilder } from '@angular/forms';
 
 
@@ -13,7 +13,11 @@ export class SplitterFormComponent implements OnInit {
   tipPercentage:number=0;
   constructor(private fb:FormBuilder,private renderer:Renderer2) { }
 
+  @ViewChild('custom') custom: ElementRef;
+  @ViewChild('billamt') billamt: ElementRef;
+
   ngOnInit(): void {
+
     this.splitForm = this.fb.group({
       billAmount: new FormControl('',[Validators.required,Validators.pattern('\\d+([.]\\d+)?'),
           Validators.max(999999999),Validators.min(1)]),
@@ -24,11 +28,14 @@ export class SplitterFormComponent implements OnInit {
       numPpl:new FormControl('',[Validators.required,Validators.pattern('\\d+([.]\\d+)?'),Validators.min(1)]),
       resetBtn:new FormControl('')
     });
+
+
   }
 
 onReset(){
   this.splitForm.reset();
   this.setCustomoff();
+  this.billamt.nativeElement.focus();
 }
 
 customOrCanned():number {
@@ -83,12 +90,17 @@ calculateTotal():number{
 handleCustom($event:Event):boolean {
   this.customHidden=$event.returnValue;
   this.tipPercentage = this.splitForm.get('customPercent')?.value;
+
   return this.customHidden;
 }
 
 checkCustom() {
   return this.customHidden;
 }
+
+
+
+
 
 setCustomoff(tip?:number) {
   this.customHidden=false;
